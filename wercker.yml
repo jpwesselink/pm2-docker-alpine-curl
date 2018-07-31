@@ -1,0 +1,13 @@
+build:
+  box: keymetrics/pm2:8-alpine
+  steps:
+    - internal/docker-build: 
+        dockerfile: Dockerfile 
+        image-name: pm2-curl
+    - internal/docker-push: 
+        image-name: pm2-curl
+        username: $DOCKER_USERNAME
+        password: $DOCKER_PASSWORD
+        registry: https://docker.io
+        repository: vibedelivery/pm2-curl
+        tag: 8-alpine
